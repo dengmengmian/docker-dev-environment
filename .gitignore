@@ -10,6 +10,7 @@
 !/docker/data/clickhouse/.gitkeep
 !/docker/data/mysql/.gitkeep
 !/docker/data/redis/.gitkeep
+!/docker/data/.gitkeep
 
 app/
 docker/data/clickhouse/
