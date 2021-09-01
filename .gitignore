@@ -7,3 +7,4 @@ docker/logs/php-fpm/*
 docker/logs/redis/*
 docker/files/php/pkg/*
 app/*
+!app/.gitkeep
