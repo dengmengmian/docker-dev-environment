@@ -1,0 +1,9 @@
+docker/data/clickhouse/*
+docker/data/mysql/*
+docker/data/redis/*
+docker/logs/clickhouse/*
+docker/logs/nginx/*
+docker/logs/php-fpm/*
+docker/logs/redis/*
+docker/files/php/pkg/*
+app/*
