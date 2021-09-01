@@ -11,12 +11,15 @@
 !/docker/data/mysql/.gitkeep
 !/docker/data/redis/.gitkeep
 !/docker/data/.gitkeep
+!/docker/data/clickhouse/.gitkeep
+!/docker/data/mysql/.gitkeep
+!/docker/data/redis/.gitkeep
 
 app/
-docker/data/clickhouse/
-docker/data/mysql/
-docker/data/redis/
-docker/logs/clickhouse/*.log
-docker/logs/nginx/*.log
-docker/logs/php-fpm/*.log
-docker/logs/redis/*.log
+/docker/data/clickhouse/*
+/docker/data/mysql/*
+/docker/data/redis/*
+/docker/logs/clickhouse/*.log
+/docker/logs/nginx/*.log
+/docker/logs/php-fpm/*.log
+/docker/logs/redis/*.log
