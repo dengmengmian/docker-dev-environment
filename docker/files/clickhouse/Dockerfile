@@ -1,1 +1,1 @@
-FROM  yandex/clickhouse-server:latest
+FROM  elasticsearch:8.1.3
