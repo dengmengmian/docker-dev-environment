@@ -83,6 +83,7 @@ services:
     container_name: common-els
     ports:
         - 9200:9200
+        # - 9300:9330
     environment:
       # 开启内存锁定
       - bootstrap.memory_lock=true
@@ -97,5 +98,5 @@ services:
     volumes:
       - ./docker/data/elasticsearch:/usr/share/elasticsearch/data:rw
       - ./docker/logs/elasticsearch:/usr/share/elasticsearch/logs:rw
-      - ./docker/files/elasticsearch/plugins:/usr/share/elasticsearch/plugins:rw
+      - ./docker/files/elasticsearch/plugins:/usr/share/elasticsearch/plugins:ro
     restart: always

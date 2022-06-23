@@ -36,9 +36,9 @@ ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
 RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
 # Install phpunit
-RUN wget https://phar.phpunit.de/phpunit-6.2.4.phar \
-    && chmod +x phpunit-6.2.4.phar \
-    && mv phpunit-6.2.4.phar /usr/local/bin/phpunit
+# RUN wget https://phar.phpunit.de/phpunit-6.2.4.phar \
+#     && chmod +x phpunit-6.2.4.phar \
+#     && mv phpunit-6.2.4.phar /usr/local/bin/phpunit
 
 RUN rm -f /home/redis.tgz
 RUN rm -f /home/mcrypt.tgz
