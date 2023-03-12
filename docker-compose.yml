@@ -35,55 +35,55 @@ services:
     command: nginx -g 'daemon off;'
 
   mysql-db:
-      build: ./docker/files/mysql
-      container_name: common-mysql
-      command: --default-authentication-plugin=mysql_native_password
-      ports:
-        - "3306:3306"
-      volumes:
-        - ./docker/data/mysql:/var/lib/mysql:rw
-        - ./docker/logs/mysql:/var/lib/mysql-logs:rw
-        - ./docker/files/mysql/conf.d:/etc/mysql/conf.d:ro
-      environment:
-        MYSQL_ROOT_PASSWORD: HhwpKnf!YC4e
-        MYSQL_DATABASE: develop
-        MYSQL_USER: develop
-        MYSQL_PASSWORD: HhwpKnf!YC4e
-      restart: always
+    build: ./docker/files/mysql
+    container_name: common-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/data/mysql:/var/lib/mysql:rw
+      - ./docker/logs/mysql:/var/lib/mysql-logs:rw
+      - ./docker/files/mysql/conf.d:/etc/mysql/conf.d:ro
+    environment:
+      MYSQL_ROOT_PASSWORD: HhwpKnf!YC4e
+      MYSQL_DATABASE: develop
+      MYSQL_USER: develop
+      MYSQL_PASSWORD: HhwpKnf!YC4e
+    restart: always
 
   redis-db:
-      build: ./docker/files/redis
-      container_name: common-redis
-      ports:
-        - "6380:6379"
-      volumes:
-        - ./docker/data/redis:/data
-      restart: always
+    build: ./docker/files/redis
+    container_name: common-redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./docker/data/redis:/data
+    restart: always
 
   clickhouse-db:
-      build: ./docker/files/clickhouse
-      container_name: common-clickhouse
-      ports:
-        - 8123:8123
-        - 9009:9009
-        - 9090:9090
-      ulimits:
-        nproc: 65535
-        nofile:
-          soft: 262144
-          hard: 262144
-      volumes:
-        - ./docker/data/clickhouse:/var/lib/clickhouse:rw
-        - ./docker/logs/clickhouse:/var/log/clickhouse-server:rw
-        - ./docker/files/clickhouse/conf:/etc/clickhouse-server:ro
-      restart: always
+    build: ./docker/files/clickhouse
+    container_name: common-clickhouse
+    ports:
+      - 8123:8123
+      - 9009:9009
+      - 9090:9090
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - ./docker/data/clickhouse:/var/lib/clickhouse:rw
+      - ./docker/logs/clickhouse:/var/log/clickhouse-server:rw
+      - ./docker/files/clickhouse/conf:/etc/clickhouse-server:ro
+    restart: always
 
   elasticsearch:
     build: ./docker/files/elasticsearch
     container_name: common-els
     ports:
-        - 9200:9200
-        # - 9300:9330
+      - 9200:9200
+      # - 9300:9330
     environment:
       # 开启内存锁定
       - bootstrap.memory_lock=true
