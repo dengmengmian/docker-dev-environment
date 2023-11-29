@@ -1,28 +1,8 @@
 version: '3.2'
 services:
-  php-fpm:
-    build: ./docker/files/php/
-    container_name: common-php
-    ports:
-      - "9000:9000"
-    links:
-      - mysql-db:mysql-db
-      - redis-db:redis-db
-    volumes:
-      - ./app:/data/www:rw
-      - ./docker/files/php/php.ini:/usr/local/etc/php/php.ini:ro # 当前php配置文件；可以拷贝修改php-dev.ini为想要的配置
-      - ./docker/files/php/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
-      - ./docker/logs/php-fpm:/var/log/php-fpm:rw
-    restart: always
-    command: php-fpm
-
   nginx:
     build: ./docker/files/nginx
     container_name: common-nginx
-    depends_on:
-      - php-fpm
-    links:
-      - php-fpm:php-fpm
     volumes:
       - ./app:/data/www:rw
       - ./docker/files/nginx/conf.d:/etc/nginx/conf.d:ro
@@ -60,43 +40,3 @@ services:
       - ./docker/data/redis:/data
     restart: always
 
-  clickhouse-db:
-    build: ./docker/files/clickhouse
-    container_name: common-clickhouse
-    ports:
-      - 8123:8123
-      - 9009:9009
-      - 9090:9090
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 262144
-        hard: 262144
-    volumes:
-      - ./docker/data/clickhouse:/var/lib/clickhouse:rw
-      - ./docker/logs/clickhouse:/var/log/clickhouse-server:rw
-      - ./docker/files/clickhouse/conf:/etc/clickhouse-server:ro
-    restart: always
-
-  elasticsearch:
-    build: ./docker/files/elasticsearch
-    container_name: common-els
-    ports:
-      - 9200:9200
-      # - 9300:9330
-    environment:
-      # 开启内存锁定
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      # 指定单节点启动
-      - discovery.type=single-node
-    ulimits:
-      # 取消内存相关限制  用于开启内存锁定
-      memlock:
-        soft: -1
-        hard: -1
-    volumes:
-      - ./docker/data/elasticsearch:/usr/share/elasticsearch/data:rw
-      - ./docker/logs/elasticsearch:/usr/share/elasticsearch/logs:rw
-      - ./docker/files/elasticsearch/plugins:/usr/share/elasticsearch/plugins:ro
-    restart: always
