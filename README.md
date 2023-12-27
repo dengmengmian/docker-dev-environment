@@ -9,27 +9,9 @@
 
 相关软件版本：
 
-- PHP 7.2
-- PHP 7.0
-- PHP 5.6
 - MySQL 5.7
 - Nginx 1.12
 - Redis 3.2
-- Clickhouse last
-
-用到的PHP拓展：
-
-- redis 3.1.4
-- Phalcon 3.3.1
-- mcrypt 1.0.1
-
-拓展安装方式：
-
-为了统一拓展版本，拓展包纳入版本管理。由开发者统一维护。正常使用略过。
-
-```
-wget https://pecl.php.net/get/mcrypt-1.0.1.tgz -O docker/files/php/pkg/mcrypt.tgz
-```
 
 ## 使用
 > 如修改了docker-copmose 文件，请先执行docker-compose up --bulid，避免修改无效。
@@ -48,7 +30,7 @@ docker/
 ├── docker/  主要配置（nginx配置文件，log文件，mysql数据，redis数据）
 │   ├── data mysql,redis映射本地的数据文件
 │   ├── files 版本核心配置文件
-│   ├── logs nginx, php等映射外层的log日志
+│   ├── logs nginx 映射外层的log日志
 ├── golang/
 ├── docker-compose.yml
 ```

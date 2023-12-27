@@ -24,3 +24,5 @@ app/
 /docker/logs/php-fpm/*.log
 /docker/logs/redis/*.log
 /docker/logs/mysql/*.log
+
+/docker/files/nginx/conf.d/work/
