@@ -49,6 +49,7 @@ services:
       - ./docker/logs/postgres:/var/log/postgresql:rw
       - ./docker/files/postgres/conf.d:/etc/postgresql/conf.d:ro
     environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_DB: ${POSTGRES_DB:-develop}
       POSTGRES_USER: ${POSTGRES_USER:-develop}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-your_postgres_password}
