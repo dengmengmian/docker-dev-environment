@@ -1,4 +1,3 @@
-version: '3.2'
 services:
   nginx:
     build: ./docker/files/nginx
@@ -25,10 +24,10 @@ services:
       - ./docker/logs/mysql:/var/lib/mysql-logs:rw
       - ./docker/files/mysql/conf.d:/etc/mysql/conf.d:ro
     environment:
-      MYSQL_ROOT_PASSWORD: HhwpKnf!YC4e
-      MYSQL_DATABASE: develop
-      MYSQL_USER: develop
-      MYSQL_PASSWORD: HhwpKnf!YC4e
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-your_mysql_root_password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-develop}
+      MYSQL_USER: ${MYSQL_USER:-develop}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-your_mysql_password}
     restart: always
 
   redis-db:
@@ -40,3 +39,18 @@ services:
       - ./docker/data/redis:/data
     restart: always
 
+  postgres-db:
+    build: ./docker/files/postgres
+    container_name: common-postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/data/postgres:/var/lib/postgresql/data:rw
+      - ./docker/logs/postgres:/var/log/postgresql:rw
+      - ./docker/files/postgres/conf.d:/etc/postgresql/conf.d:ro
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-develop}
+      POSTGRES_USER: ${POSTGRES_USER:-develop}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-your_postgres_password}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    restart: always

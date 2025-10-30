@@ -5,7 +5,6 @@ port=3306
 
 [mysqld]
 default-storage-engine=INNODB
-max_connections=512
 skip-host-cache
 skip-name-resolve
 max_allowed_packet = 4M

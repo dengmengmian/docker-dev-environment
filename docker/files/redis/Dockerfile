@@ -1,4 +1,4 @@
-FROM redis:3.2
+FROM redis:7.2
 
 # set timezome
 ENV TZ=Asia/Shanghai

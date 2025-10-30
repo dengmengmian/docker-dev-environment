@@ -1,4 +1,4 @@
-FROM mysql:8.0
+FROM postgres:16
 
 # set timezome
 ENV TZ=Asia/Shanghai
