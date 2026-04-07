@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775572591189,
+  "projectRoot": "/Users/mengmian/Develop",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "app"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 2,
+      "lastAccessed": 1775572591177,
+      "keyFiles": []
+    },
+    "docker": {
+      "path": "docker",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775572591177,
+      "keyFiles": []
+    },
+    "app/test": {
+      "path": "app/test",
+      "purpose": "Test files",
+      "fileCount": 1,
+      "lastAccessed": 1775572591177,
+      "keyFiles": []
+    },
+    "docker/data": {
+      "path": "docker/data",
+      "purpose": "Data files",
+      "fileCount": 1,
+      "lastAccessed": 1775572591178,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "app/go/src/gitcode-assist-service/plan.md",
+      "accessCount": 2,
+      "lastAccessed": 1775573999539,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
